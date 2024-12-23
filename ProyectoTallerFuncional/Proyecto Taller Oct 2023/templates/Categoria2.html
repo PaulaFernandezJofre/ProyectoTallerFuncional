@@ -1,0 +1,212 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empleos</title>
+    <!-- Añade Bootstrap CSS al documento -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        <link rel="stylesheet" href="{% static 'css/stilo.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-primary ">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'categoria' %}">WorkMatch</a>
+                <audio tabindex="12" style="margin-left: 0px;" controls>
+                  <source src="{% static 'audios/voz005.mp3' %}" type="audio/mp3">
+                </audio>
+                <h6>Oscuro/Claro</h6>
+                <label style="margin-right: 98px;" id="switch">
+                  <input type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'MisPostus' %}">MIS INFORMACIONES</a>
+                </li>
+                <li class="nav-item">
+                  <a class="btn btn-outline-light me-2" href="{% url 'logoupost' %}">Cerrar Sesion</a>
+              </li>  
+            </ul>
+            <audio tabindex="13" controls>
+              <source src="{% static 'audios/Recording_83.mp3' %}" type="audio/mp3">
+            </audio>
+            </div>
+        </nav>
+        
+        
+    </header>
+    <!-- Contenido del documento -->
+    <div class="container">
+      <div class="row">
+        <div class="col-2">
+          
+        </div>
+        <div class="col-8">
+            <h2 class="text-center mb-4"> Paso 2: Lista de Empleos Disponibles 
+              <audio tabindex="14" controls>
+                <source src="{% static 'audios/voz012.mp3' %}" type="audio/mp3">
+              </audio>
+            </h2>
+            <ul class="list-group">
+              {% for oferta in ofertas_emp %}
+              <li class="list-group-item">
+                  <div class="card mb-3 bg-primary">
+                      <div class="card-body bg-light">
+                          <h5 class="card-title text-dark">Empresa:{{ oferta.nombre_emp }}</h5>
+                          <p class="card-text text-dark">Busca:{{ oferta.nombre_puesto }}</p>
+                          <p class="card-text text-dark">Descripcion puesto:{{ oferta.descripcion }}</p>
+                          <p class="card-text text-dark">Sueldo Liquido:{{ oferta.sueldo }}</p>
+                          <p class="card-text text-dark">Cupos disponibles:{{ oferta.cupos }}</p>
+                          <p class="card-text text-dark">Fecha Limite para Postular:{{ oferta.fecha_limite }}</p>
+                          <p class="card-text text-dark">Telefono Contacto:{{ oferta.fono_empre }}</p>
+                          <p class="card-text text-dark">Correo Contacto:{{ oferta.correo_empre }}</p>
+                      </div>
+                      <form method="POST" action="{% url 'postular' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="postulante_id" value="{{ request.session.id_usuario }}">
+                        <input type="hidden" name="oferta_id" value="{{ oferta.id_oferta_emp }}">
+                        <button type="submit" class="btn btn-primary">Postular</button>
+                    </form>
+                  </div>
+              </li>
+              {% empty %}
+              <div class="pb-5"></div>
+              <div class="p-3 mb-2 bg-danger text-white">No se Encuentran Ofertas de trabajo en esta categoria</div>
+              <div class="pb-5"></div>
+              <div class="pb-5"></div>
+              {% endfor %}       
+            </ul>
+        </div>
+      </div>
+    </div>
+    <footer class="bg-dark text-center text-white">
+      <!-- Grid container -->
+      <div class="container p-4">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+          <!-- Facebook -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/" role="button"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+    
+          <!-- Twitter -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/" role="button"
+            ><i class="fab fa-twitter"></i
+          ></a>
+    
+          <!-- Google -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.google.com/" role="button"
+            ><i class="fab fa-google"></i
+          ></a>
+    
+          <!-- Instagram -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/" role="button"
+            ><i class="fab fa-instagram"></i
+          ></a>
+    
+          <!-- Linkedin -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/" role="button"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+    
+          <!-- Github -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/" role="button"
+            ><i class="fab fa-github"></i
+          ></a>
+  
+        </section>
+        <audio tabindex="2" controls>
+          <source  src="{% static 'audios/voz008.mp3' %}" type="audio/mp3">
+        </audio>
+          <!-- Section: Social media -->
+      
+          <!-- Section: Form -->
+          <section class="">
+            <form action="">
+              <!--Grid row-->
+              <div class="row d-flex justify-content-center">
+              </div>
+              <!--Grid row-->
+            </form>
+          </section>
+          <!-- Section: Form -->
+      
+          <!-- Section: Text -->
+          <section class="mb-4">
+            <p>
+              Quedan todos los derechos reservados. Está absolutamente prohibida su reproducción. 
+              Si sufres algún inconveniente en tu postulación o dentro de tu trabajo, comunícate con el Instituto de Seguridad laboral al 600 586 9090
+            </p>
+          </section>
+          <audio style="margin: top 5px; margin-left: 250px;" controls>
+            <source src="{% static 'audios/voz009.mp3' %}" type="audio/mp3">
+          </audio>
+          <!-- Section: Text -->
+      
+          <!-- Section: Links -->
+          <section class="">
+            <!--Grid row-->
+            <div class="row">
+              <!--Grid column-->
+              <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Enlaces para personas con discapacidad</h5>
+      
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#!" href="#">1 Página Principal</a>
+                  </li>
+                </ul>
+                <audio tabindex="16" controls>
+                  <source src="{% static 'audios/voz014.mp3' %}" type="audio/mp3">
+                </audio>
+              </div>
+              
+              <!--Grid column-->
+      
+              <!--Grid column-->
+              <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Enlaces para empresas</h5>
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#!" href="{% url 'registroemp' %}">1 Registro</a>
+                  </li>
+                  <li>
+                    <a href="#!" href="{% url 'loginemp' %}">2 Ingresar</a>
+                  </li>
+                  <li>
+                    <a href="#!" href="{% url 'ofertas' %}">3 Ofertas Laborales</a>
+                  </li>
+                </ul>
+              </div>
+              <!--Grid column-->
+            </div>
+            <!--Grid row-->
+          </section>
+          <!-- Section: Links -->
+        </div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2023 Copyright:
+          <a href="#">WorkMatch.cl</a>
+          <audio tabindex="17" style="margin-left: 250px;" controls>
+            <source src="{% static 'audios/voz010.mp3' %}" type="audio/mp3">
+          </audio>
+        </div>
+        <!-- Copyright -->
+      </footer>
+      <!-- Footer -->
+      <script src="{% static 'js/javascript.js' %}"></script>
+      <script src="{% static 'js/tabjs.js' %}"></script>
+
+    <!-- Añade Bootstrap JavaScript al documento -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/"></script>

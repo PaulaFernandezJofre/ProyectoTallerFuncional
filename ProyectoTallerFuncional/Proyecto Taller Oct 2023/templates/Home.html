@@ -1,0 +1,276 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stilo.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-primary ">
+            <div class="container-fluid">
+                <a href="#">WorkMatch</a>
+                <audio tabindex="1" style="margin-left: 0px;" controls>
+                  <source  src="{% static 'audios/voz005.mp3' %}" type="audio/mp3">
+                </audio>
+                <h6>Oscuro/Claro</h6>
+                <label style="margin-right: 98px;" id="switch">
+                  <input type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+                <ul class="navbar-nav"> 
+                  <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="{% url 'MisPostus' %}">MIS INFORMACIONES</a>
+                </li>
+                  <li class="nav-item">
+                    <button class="btn btn-outline-light me-2">Cerrar Sesión Postulante</button>
+                </li>  
+                </ul>
+                <audio tabindex="2" style="margin-right: 0px;" controls>
+                  <source  src="{% static 'audios/Recording_83.mp3' %}" type="audio/mp3">
+                </audio>
+            </div>
+        </nav>
+       
+        
+    </header>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2 p-5">
+                </div>
+                <div class="col-md-8 p-5">
+                    <h1> Paso 1: Lista de Búsqueda por Discapacidad</h1>
+                    <ul class="list-group pt-5">
+                        <li class="list-group-item p-4"><a href="{% url 'ofertas2' %}" class="text-decoration-none">Auditiva leve a moderada 1</a>
+                        </li>
+                        <li class="list-group-item p-4"><a href="{% url 'ofertas3' %}" class="text-decoration-none ">Cognitiva leve a moderada 2</a>
+                        </li>
+                        <li class="list-group-item p-4"><a href="{% url 'ofertas' %}" class="text-decoration-none ">Visual leve a moderada 3</a>
+                        </li>
+                        <li class="list-group-item p-4"><a href="{% url 'ofertas4' %}" class="text-decoration-none ">Ninguna de las Anteriores 4</a></li>
+                    </ul>
+                    <audio tabindex="3" controls>
+                      <source  src="{% static 'audios/voz001.mp3' %}" type="audio/mp3">
+                    </audio>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="bg-primary">.</div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-4 pt-5">
+                    <div class="card" style="height: 50rem; width: 18rem;">
+                        
+                        <div class="card-body">
+                            <h5 class="card-title">Tarjeta Explicativa 1</h5>
+                            <p class="card-text">Paso 1: Aprieta en el botón el tipo de discapacidad que tú tienes, la página te va a redirigir a la parte de la Bolsa de Trabajo donde debes postular al trabajo que más te interese y se adapte a ti. Para eso estamos y te ayudamos en este proceso. ¡Toma calma!</p>
+                            
+                        </div>
+                    </div>
+                    <audio tabindex="4" controls>
+                      <source  src="{% static 'audios/voz002.mp3' %}" type="audio/mp3">
+                    </audio>
+                </div>
+                <div class="col-4 pt-5">
+                    <div class="card" style="height: 50rem; width: 18rem;">
+                        
+                        <div class="card-body">
+                            <h5 class="card-title">Tarjeta Explicativa 2</h5>
+                            <p class="card-text">Paso 2: Lee atentamente qué ofrece cada Empresa, si te gusta y quieres trabajar en ese lugar. Fijate muy bien si el lugar queda cerca de donde vives y el lugar te acomoda y se adapta a tu tipo de discapacidad ¡No olvides apretar Postular cuando ya tengas claro la empresa a tu elección!</p>
+                            
+                        </div>
+                    </div>
+                    <audio tabindex="5" controls>
+                      <source  src="{% static 'audios/voz003.mp3' %}" type="audio/mp3">
+                    </audio>
+                </div>
+                <div class="col-4 pt-5">
+                    <div class="card" style="height: 50rem; width: 18rem;">
+                        
+                        <div class="card-body">
+                            <h5 class="card-title">Tarjeta Explicativa 3</h5>
+                            <p class="card-text">Paso 3: Llena el formulario de postulación para que la empresa te reconozca y sepa que quieres trabajar con ellos en su Empresa. Sube un archivo con las habilidades que tu tienes para trabajar. Acepta los Términos y Condiciones y aprieta Postular. Si esto se lee un poco complicado no te preocupes, porque en cada apartado sale una descripción detallada con video y audio para que tu comprendas mejor.</p>
+                           
+                        </div>
+                    </div>
+                    <audio tabindex="6" controls>
+                      <source  src="{% static 'audios/voz004.mp3' %}" type="audio/mp3">
+                    </audio>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="bg-primary">.</div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                    <h1>Acerca de Nosotros</h1>
+                    <p>WorkMatch es una empresa que nace el 2023 que está comprometida con la búsqueda de tu trabajo ideal. Hacemos un seguimiento de tu postulación hasta que encuentres trabajo. ¡Ese es nuestro compromiso!</p>
+                    <audio tabindex="7" controls>
+                      <source  src="{% static 'audios/voz007.mp3' %}" type="audio/mp3">
+                    </audio>
+                  </div>
+              </div>
+                <div class="col-4"></div>
+              </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-dark text-center text-white">
+      <!-- Grid container -->
+      <div class="container p-4">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+          <!-- Facebook -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/" role="button"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+    
+          <!-- Twitter -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/" role="button"
+            ><i class="fab fa-twitter"></i
+          ></a>
+    
+          <!-- Google -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.google.com/" role="button"
+            ><i class="fab fa-google"></i
+          ></a>
+    
+          <!-- Instagram -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/" role="button"
+            ><i class="fab fa-instagram"></i
+          ></a>
+    
+          <!-- Linkedin -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/" role="button"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+    
+          <!-- Github -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/" role="button"
+            ><i class="fab fa-github"></i
+          ></a>
+  
+        </section>
+        <audio tabindex="2" controls>
+          <source  src="{% static 'audios/voz008.mp3' %}" type="audio/mp3">
+        </audio>
+
+      <!-- Section: Social media -->
+  
+      <!-- Section: Form -->
+      <section class="">
+        <form action="">
+          <!--Grid row-->
+          <div class="row d-flex justify-content-center">
+          </div>
+          <!--Grid row-->
+        </form>
+      </section>
+      <!-- Section: Form -->
+  
+      <!-- Section: Text -->
+      <section class="mb-4">
+        <p>
+          Quedan todos los derechos reservados. Está absolutamente prohibida su reproducción. 
+          Si sufres algún inconveniente en tu postulación o dentro de tu trabajo, comunícate con el Instituto de Seguridad laboral al 600 586 9090
+          <audio tabindex="9" controls>
+            <source  src="{% static 'audios/voz009.mp3' %}" type="audio/mp3">
+          </audio>
+        </p>
+      </section>
+      
+      <!-- Section: Text -->
+  
+      <!-- Section: Links -->
+      <section class="">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Enlaces para personas con discapacidad</h5>
+  
+            <ul class="list-unstyled mb-0">
+              <li style="margin-top: 20px;">
+                <li class="nav-item">
+                  <button class="btn btn-outline-light me-2 "><a class="btn btn-outline-light me-2 " href="{% url 'RegisPostu' %}">Registro Postulante</a></button>
+              </li>
+              </li>
+              <li style="margin-top: 45px;">
+                <li class="nav-item">
+                  <button class="btn btn-outline-light me-2 "><a class="btn btn-outline-light me-2 " href="{% url 'LoginPostu' %}">Iniciar Sesión Postulante</a></button>
+              </li>
+              </li>
+              <li style="margin-top: 55px;">
+                <li class="nav-item">
+                  <button class="btn btn-outline-light me-2 "><a class="btn btn-outline-light me-2 " href="{% url 'ofertas' %}">Empleos</a></button>
+              </li>
+            </ul>
+            <audio tabindex="10" style="width: 220px; margin-top: 20px;" controls>
+              <source  src="{% static 'audios/voz014.mp3' %}" type="audio/mp3">
+            </audio>
+          </div>
+          
+          <!--Grid column-->
+  
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Enlaces para empresas</h5>
+            <ul class="list-unstyled mb-0">
+              <li style="margin-top: 20px;">
+              <li class="nav-item">
+                <button class="btn btn-outline-light me-2 "><a class="btn btn-outline-light me-2 " href="{% url 'registroemp' %}">Registro Empresa</a></button>
+            </li>
+              </li>
+              <li style="margin-top: 45px;">
+                <li class="nav-item">
+                  <button class="btn btn-outline-light me-2 "><a class="btn btn-outline-light me-2 " href="{% url 'loginemp' %}">Iniciar Sesión Empresa</a></button>
+              </li>
+              </li>
+              <li style="margin-top: 55px;">
+                <li class="nav-item">
+                  <button class="btn btn-outline-light me-2 "><a class="btn btn-outline-light me-2 " href="{% url 'empview_ofertas' %}">Ofertas Laborales</a></button>
+              </li>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </section>
+      <!-- Section: Links -->
+    </div>
+    <!-- Grid container -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2023 Copyright:
+      <a href="#">WorkMatch.cl</a>
+      <audio tabindex="11" style="margin-left: 250px;" controls>
+        <source  style="margin-right: 8px;" src="{% static 'audios/voz010.mp3' %}" type="audio/mp3">
+      </audio>
+    </div>
+    
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+  <script src="{% static 'js/javascript.js' %}"></script>
+  <script src="{% static 'js/tabjs.js' %}"></script>
+</body>
+
+</html>

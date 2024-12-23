@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stilo.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<header>
+    <nav class="navbar navbar-expand-lg bg-primary ">
+        <div class="container-fluid">
+            <a class="navbar-brand text" href="#">WorkMatch</a>
+            <audio tabindex="1" style="margin-left: 0px;" controls>
+                <source  src="{% static 'audios/voz005.mp3' %}" type="audio/mp3">
+            </audio>
+            <h6>Oscuro/Claro</h6>
+                    <label style="margin-right: 98px;" id="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                    </label> 
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active text" aria-current="page" href="{% url 'categoria' %}">Área de Búsqueda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-outline-light me-2" href="{% url 'logoupost' %}">Cerrar Sesion</a>
+                </li>
+            </ul>
+            <audio tabindex="2" style="margin-right: 0px;" controls>
+                <source  src="{% static 'audios/Recording_79.mp3' %}" type="audio/mp3">
+            </audio>
+        </div>
+    </nav>
+</header>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <h4>Tus Opciones</h4>
+                <ul class="list-group">
+                    <li class="list-group-item p-4 bg-primary"><a href="{% url 'MisPostus' %}" class="text-decoration-none ">MisPostus</a>
+                    </li>
+                    <li class="list-group-item p-4"><a href="{% url 'datospostu' %}" class="text-decoration-none ">Mis Datos</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-8">
+                <h2 class="mb-4">Mis Postulaciones</h2>
+                <audio tabindex="1" style="margin-left: 0px;" controls>
+                    <source  src="{% static 'audios/Recording_56.mp3' %}" type="audio/mp3">
+                </audio>
+                {% for postulacion in postulaciones %}
+                    <h5>ID POSTULACION: #{{ postulacion.id_postulacion }}</h5>
+                    <div class="card mb-3 bg-primary">
+                        <div class="card-body bg-light">
+                          <h5 class="card-title">{{ postulacion.id_oferta_empl.nombre_emp }}</h5>
+                          <p class="card-text"><strong>Nombre del Puesto:</strong> {{ postulacion.id_oferta_empl.nombre_puesto }}</p>
+                          <p class="card-text"><strong>Descripción del Trabajo:</strong> {{ postulacion.id_oferta_empl.descripcion }}</p>
+                          <p class="card-text"><strong>Sueldo a Pagar:</strong> ${{ postulacion.id_oferta_empl.sueldo }}</p>
+                          <p class="card-text"><strong>Cupos Disponibles al Postular:</strong> {{ postulacion.id_oferta_empl.cupos }}</p>
+                          <p class="card-text"><strong>Fecha Límite de Postulación:</strong> {{ postulacion.id_oferta_empl.fecha_limite }}</p>
+                          <p class="card-text"><strong>Fecha de Postulación:</strong> {{ postulacion.fecha_creacion_postu }}</p>
+                          <p class="card-text"><strong>Comentario Extra:</strong> {{ postulacion.mensaje_postu }}</p> 
+                        </div>
+                    </div>
+                {% empty %}
+                <div class="pb-5"></div>
+              <div class="p-3 mb-2 bg-danger text-white">Aun no has Hecho Postulaciones</div>
+                {% endfor %}
+
+                
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{% static './js/javascript.js' %}"></script>
+    <script type="text/javascript" src="{% static './js/reconocimientoxcasillavoz.js' %}"></script> 
+    <script src="{% static 'js/tabjs.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stilo.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<header>
+    <nav class="navbar navbar-expand-lg bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand text" href="#">WorkMatch</a>
+            <audio tabindex="1" style="margin-left: 0px;" controls>
+                <source  src="{% static 'audios/voz005.mp3' %}" type="audio/mp3">
+            </audio>
+            <h6>Oscuro/Claro</h6>
+                <label style="margin-right: 98px;" id="switch">
+                  <input type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'principal' %}">Página Principal</a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-light me-2 "><a class="btn btn-outline-light me-2 " href="{% url 'RegisPostu' %}">Registro Postulante</a></button>
+                </li>
+            </ul>
+            <audio tabindex="2" style="margin-right: 0px;" controls>
+                <source  src="{% static 'audios/Recording_81.mp3' %}" type="audio/mp3">
+            </audio>
+        </div>
+    </nav>
+</header>
+
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-2">
+                <div class="pt-5">
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h2 class="mb-4">Inicio de Sesión</h2>
+                <audio tabindex="1" style="margin-left: 0px;" controls>
+                    <source  src="{% static 'audios/Recording_58.mp3' %}" type="audio/mp3">
+                </audio>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="nombrePostulante">1 Nombre Postulante</label>
+                        <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre y Apellido" name="nombre">
+                        <input type="search"  id="search_input1" placeholder="Pincha y habla" />
+                    </div>
+                    <div class="form-group">
+                        <label for="contraseña">Contraseña Postulante</label>
+                        <input type="password" class="form-control" id="contraseña" placeholder="Ingresa tu contraseña" name="contraseña">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">3 Ingresar</button>
+                        <a  href="{% url 'RegisPostu' %}" class="btn btn-secondary ml-2">4 Registrarme</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script>
+        function activarReconocimiento(idCampo) {
+          const campoTexto = document.getElementById(idCampo);
+          const reconocimientoVoz = new window.SpeechRecognition() || new window.webkitSpeechRecognition();
+    
+          reconocimientoVoz.lang = 'es-ES'; // Establece el idioma del reconocimiento (puede variar según el idioma que necesites)
+    
+          reconocimientoVoz.onresult = function(event) {
+            const resultado = event.results[0][0].transcript;
+            campoTexto.value = resultado;
+          }
+    
+          reconocimientoVoz.start();
+        }
+      </script>
+    <script type="text/javascript" src="{% static './js/javascript.js' %}"></script>
+    <script type="text/javascript" src="{% static './js/reconocimientoxcasillavoz.js' %}"></script> 
+    <script src="{% static 'js/tabjs.js' %}"></script>
+</body>
+
+</html>

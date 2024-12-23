@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingreso Ambiente Empresa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-primary ">
+            <div class="container-fluid">
+                <a class="navbar-brand text-light" href="#">WorkMatch</a>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" aria-current="page" href="{% url 'principal' %}">Página Principal</a>
+                    </li>
+                    <li class="nav-item">
+                      <button class="btn btn-outline-light me-2 "><a class="btn btn-outline-light me-2 " href="{% url 'registroemp' %}">Registro Empresa</a></button>
+                  </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container-sm pt-5 mb-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h1 class="text-center">Ingreso Ambiente Empresa</h1>
+                <form method="post">
+                  {% csrf_token %}
+                  <div class="form-group">
+                  <label for="username">Nombre de usuario:</label>
+                  <input type="text" name="username" class="form-control" placeholder="Nombre de usuario"><br>
+                  </div>
+                  <div class="form-group">
+                  <label for="password">Contraseña:</label>
+                  <input type="password" name="password" class="form-control" placeholder="Contraseña"><br>
+                  </div>
+                  <input type="submit" value="Iniciar sesión" class="btn btn-primary"><br>
+                  <br>
+                  <a href="{% url 'registroemp' %}" class="btn btn-primary">Registrarme</a>                  
+                </form>
+              
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="pb-5"></div>
+    <div class="pb-5"></div>
+    <div class="pb-5"></div>
+    <div class="pb-5"></div>
+    <div class="pb-5"></div>
+    <div class="pb-5"></div>
+    <div class="pb-5"></div>
+    <div class="pb-5"></div>
+    <footer class="bg-dark text-center text-white">
+      <!-- Grid container -->
+      <div class="container p-4">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+          <!-- Facebook -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/" role="button"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+    
+          <!-- Twitter -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/" role="button"
+            ><i class="fab fa-twitter"></i
+          ></a>
+    
+          <!-- Google -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.google.com/" role="button"
+            ><i class="fab fa-google"></i
+          ></a>
+    
+          <!-- Instagram -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/" role="button"
+            ><i class="fab fa-instagram"></i
+          ></a>
+    
+          <!-- Linkedin -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/" role="button"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+    
+          <!-- Github -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/" role="button"
+            ><i class="fab fa-github"></i
+          ></a>
+  
+        </section>
+        
+          <!-- Section: Social media -->
+      
+          <!-- Section: Form -->
+          <section class="">
+            <form action="">
+              <!--Grid row-->
+              <div class="row d-flex justify-content-center">
+              </div>
+              <!--Grid row-->
+            </form>
+          </section>
+          <!-- Section: Form -->
+      
+          <!-- Section: Text -->
+          <section class="mb-4">
+            <p>
+              Quedan todos los derechos reservados. Está absolutamente prohibida su reproducción. 
+              Si sufres algún inconveniente en tu postulación o dentro de tu trabajo, comunícate con el Instituto de Seguridad laboral al 600 586 9090
+            </p>
+          </section>
+          <!-- Section: Text -->
+      
+          <!-- Section: Links -->
+          <section class="">
+            <!--Grid row-->
+            <div class="row">
+              <!--Grid column-->
+              <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Enlaces para personas con discapacidad</h5>
+      
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#!" class="text-white" href="#">Página Principal 1</a>
+                  </li>
+                  <li>
+                    <a href="#!" class="text-white" href="{% url 'ofertas' %}">Empleos 2</a>
+                  </li>
+                  <li>
+                    <a href="#!" class="text-white" href="{% url 'postus' %}">Postulación 3</a>
+                  </li>
+                </ul>
+              </div>
+              <!--Grid column-->
+      
+              <!--Grid column-->
+              <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Enlaces para empresas</h5>
+      
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#!" class="text-white" href="{% url 'registroemp' %}">Registro 1</a>
+                  </li>
+                  <li>
+                    <a href="#!" class="text-white" href="{% url 'loginemp' %}">Ingresar 2</a>
+                  </li>
+                  <li>
+                    <a href="#!" class="text-white" href="{% url 'ofertas' %}">Ofertas Laborales 3</a>
+                  </li>
+                </ul>
+              </div>
+              <!--Grid column-->
+            <!--Grid row-->
+          </section>
+          <!-- Section: Links -->
+        </div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2023 Copyright:
+          <a class="text-white" href="#">WorkMatch.cl</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoJtKh7z7lGz7"></script>

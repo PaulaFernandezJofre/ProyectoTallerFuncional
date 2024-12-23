@@ -1,0 +1,195 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página con Bootstrap</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stilo.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <style>
+        /* Estilos adicionales */
+        .jumbotron {
+            background-image: url('static/images/chile-economy.jpg');
+            /* Cambia 'imagen-de-fondo.jpg' por la URL de tu imagen */
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-primary ">
+            <div class="container-fluid">
+                <a href="#">WorkMatch</a>
+                <audio tabindex="1" style="margin-left: 0px;" controls>
+                  <source  src="{% static 'audios/voz005.mp3' %}" type="audio/mp3">
+                </audio>
+                <h6>Oscuro/Claro</h6>
+                <label style="margin-right: 98px;" id="switch">
+                  <input type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <div class="container mt-4">
+        <!-- Título con imagen de fondo -->
+        <div class="jumbotron">
+            <h1>BIENVENIDO A WORKMATCH</h1>
+            <!-- Puedes agregar más contenido aquí -->
+        </div>
+        <div class="bg-primary text-white">
+            <h1>Métodos de Ingreso</h1>
+        </div>
+        <div class="mt-5"></div>
+
+        <!-- Dos cuadros con texto y botón -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Postulante</h5>
+                        <p class="card-text text-dark">Si deseas postular a las ofertas de trabajo que ofrece WorkMatch ingresa aquí</p>
+                            <button class="btn btn-outline-light me-2 "><a class="btn btn-primary " href="{% url 'LoginPostu' %}">Ingresar</a></button>
+                    </div>
+                </div>
+                <audio tabindex="2" style="margin-left: 0px;" controls>
+                    <source  src="{% static 'audios/Recording_70.mp3' %}" type="audio/mp3">
+                  </audio>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark">Empresa</h5>
+                        <p class="card-text text-dark">Si deseas ofrecer trabajo en WorkMatch para personas con discapacidad ingresa aquí</p>
+                            <button class="btn btn-outline-light me-2 "><a class="btn btn-primary " href="{% url 'loginemp' %}">Ingresar</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div></div>
+            <div></div>
+
+        </div>
+        <!-- Sección "Sobre nosotros" -->
+        <div class="row">
+            <div class="col mt-4">
+                <h2>Sobre nosotros</h2>
+                <p>WorkMatch está destinada a encontrar trabajo a personas con discapacidad leve a moderada en un grato ambiente laboral con el compromiso de adaptar el trabajo a tus habilidades laborales</p>
+            </div>
+            <div class="col mt-4">
+                <h2>Espacio Posible Video</h2>
+                <p>Información de contacto.</p>
+        
+            </div>
+        </div>
+        
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="bg-dark text-center text-white">
+        <!-- Grid container -->
+        <div class="container p-4">
+          <!-- Section: Social media -->
+          <section class="mb-4">
+            <!-- Facebook -->
+            <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/" role="button"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+      
+            <!-- Twitter -->
+            <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/" role="button"
+              ><i class="fab fa-twitter"></i
+            ></a>
+      
+            <!-- Google -->
+            <a class="btn btn-outline-light btn-floating m-1" href="https://www.google.com/" role="button"
+              ><i class="fab fa-google"></i
+            ></a>
+      
+            <!-- Instagram -->
+            <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/" role="button"
+              ><i class="fab fa-instagram"></i
+            ></a>
+      
+            <!-- Linkedin -->
+            <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/" role="button"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+      
+            <!-- Github -->
+            <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/" role="button"
+              ><i class="fab fa-github"></i
+            ></a>
+    
+          </section>
+          <audio tabindex="3" controls>
+            <source  src="{% static 'audios/voz008.mp3' %}" type="audio/mp3">
+          </audio>
+
+      <!-- Section: Social media -->
+  
+      <!-- Section: Form -->
+      <section class="">
+        <form action="">
+          <!--Grid row-->
+          <div class="row d-flex justify-content-center">
+          </div>
+          <!--Grid row-->
+        </form>
+      </section>
+      <!-- Section: Form -->
+  
+      <!-- Section: Text -->
+      <section class="mb-4">
+        <p>
+          Quedan todos los derechos reservados. Está absolutamente prohibida su reproducción. 
+          Si sufres algún inconveniente en tu postulación o dentro de tu trabajo, comunícate con el Instituto de Seguridad laboral al 600 586 9090
+          <audio tabindex="4" controls>
+            <source  src="{% static 'audios/voz009.mp3' %}" type="audio/mp3">
+          </audio>
+        </p>
+      </section>
+      
+      <!-- Section: Text -->
+  
+    <!-- Copyright -->
+    <footer class="footer">
+        <div class="container">
+          <span class="text-muted-light">© 2023 WorkMatch / Todos los derechos reservados</span>
+        </div>
+      </footer>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+  <script src="{% static 'js/javascript.js' %}"></script>
+  <script src="{% static 'js/tabjs.js' %}"></script>
+</body>
+
+</html>
+
+    <!-- Enlace a Bootstrap JS y Popper.js (requerido para algunos componentes de Bootstrap) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="{% static 'js/javascript.js' %}"></script>
+    <script src="{% static 'js/tabjs.js' %}"></script>
+</body>
+
+</html>

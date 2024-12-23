@@ -1,0 +1,28 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+#sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    background-color: #343a40;
+    padding-top: 20px;
+}
+
+#content {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+.nav-link {
+    color: #f8f9fa;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+}
+
+.active {
+    background-color: #007bff;
+}

@@ -1,0 +1,266 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard_emp.css' %}">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand text-light" href="#">WorkMatch</a>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" aria-current="page" href="#">Página Principal</a>
+                    </li>
+                  <li class="nav-item">
+                    <a class="btn btn-outline-light me-2" href="{% url 'logoutemp' %}">Cerrar Sesion Empresa</a>
+                </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div id="sidebar">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'dashboard' %}" id="btnIngresar">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="{% url 'creation_view' %}" id="btnIngresar">Crear Oferta de Empleo</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'empview_ofertas' %}" id="btnIngresar">Revisar/Actualizar Oferta</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'postus' %}" id="btnCrear">Postulaciones</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="content">
+        <h2>Creacion Oferta de Empleo</h2>
+        <div id="contenido">
+            <div class="container">
+              {% if request.session.empresa_id %}
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="nombre_puesto">Puesto de trabajo</label>
+                        <input type="text" class="form-control" id="nombre_puesto" placeholder="Nombre del puesto" name="nombre_puesto">
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion">Descripción del trabajo</label>
+                        <textarea class="form-control" id="descripcion" rows="3" name="descripcion"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="sueldo">Sueldo a pagar(mensual)</label>
+                        <input type="number" class="form-control" id="sueldo" placeholder="Salario" name="sueldo">
+                    </div>
+                    <div class="form-group">
+                        <label for="cupos">Cupos disponibles</label>
+                        <input type="number" class="form-control" id="cupos" placeholder="Cupos" name="cupos">
+                    </div>
+                    <div class="form-group">
+                      <label for="correo_empre">Correo electrónico de la empresa:</label><br>
+                      <input type="email" id="correo_empre" class="form-control" name="correo_empre" placeholder="correo@ejemplo.com">
+                    </div>
+                    <div class="form-group">
+                      <label for="fono_empre">Teléfono de la empresa:</label><br>
+                      <input type="number" id="fono_empre" class="form-control" name="fono_empre" >      
+                    </div>
+                    <div class="form-group">
+                      <label for="fecha_limite">Fecha límite de postulación</label>
+                      <input type="date" class="form-control" id="fecha_limite" name="fecha_limite">
+                    </div> 
+                    <div class="form-group">
+                        <label for="discapacidad_enfoque">Área de discapacidad enfocada</label>
+                        <select class="form-control" id="discapacidad_enfoque" name="discapacidad_enfoque"> 
+                          <option value="1">Visual leve</option>
+                          <option value="2">Auditiva Leve</option>
+                          <option value="3">Cognitiva Leve</option>
+                          <option value="4">No Aplica</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" value="Agregar oferta">Publicar</button>
+                </form>
+              {% else %}
+              <div>Inicia sesión para ingresar una oferta.</div>
+              {% endif %}
+            </div>
+        </div>
+        <div class="pb-5"></div>
+        <div class="pb-5"></div>
+    </div>
+    <footer class="bg-dark text-center text-white">
+      <!-- Grid container -->
+      <div class="container p-4">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+          <!-- Facebook -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/" role="button"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+    
+          <!-- Twitter -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/" role="button"
+            ><i class="fab fa-twitter"></i
+          ></a>
+    
+          <!-- Google -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.google.com/" role="button"
+            ><i class="fab fa-google"></i
+          ></a>
+    
+          <!-- Instagram -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/" role="button"
+            ><i class="fab fa-instagram"></i
+          ></a>
+    
+          <!-- Linkedin -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/" role="button"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+    
+          <!-- Github -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/" role="button"
+            ><i class="fab fa-github"></i
+          ></a>
+  
+        </section>
+          <!-- Section: Social media -->
+      
+          <!-- Section: Form -->
+          <section class="">
+            <form action="">
+              <!--Grid row-->
+              <div class="row d-flex justify-content-center">
+              </div>
+              <!--Grid row-->
+            </form>
+          </section>
+          <!-- Section: Form -->
+      
+          <!-- Section: Text -->
+          <section class="mb-4">
+            <p>
+              Quedan todos los derechos reservados. Está absolutamente prohibida su reproducción. 
+              Si sufres algún inconveniente en tu postulación o dentro de tu trabajo, comunícate con el Instituto de Seguridad laboral al 600 586 9090
+            </p>
+          </section>
+          <!-- Section: Text -->
+      
+          <!-- Section: Links -->
+          <section class="">
+            <!--Grid row-->
+            <div class="row">
+              <!--Grid column-->
+              <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Links</h5>
+      
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#!" class="text-white">Link 1</a>
+                  </li>
+                  <li>
+                    <a href="#!" class="text-white">Link 2</a>
+                  </li>
+                  <li>
+                    <a href="#!" class="text-white">Link 3</a>
+                  </li>
+                  <li>
+                    <a href="#!" class="text-white">Link 4</a>
+                  </li>
+                </ul>
+              </div>
+              <!--Grid column-->
+      
+              <!--Grid column-->
+              <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Links</h5>
+      
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#!" class="text-white">Link 1</a>
+                  </li>
+                  <li>
+                    <a href="#!" class="text-white">Link 2</a>
+                  </li>
+                  <li>
+                    <a href="#!" class="text-white">Link 3</a>
+                  </li>
+                  <li>
+                    <a href="#!" class="text-white">Link 4</a>
+                  </li>
+                </ul>
+              </div>
+              <!--Grid column-->
+      
+              <!--Grid column-->
+              <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Links</h5>
+      
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#!" class="text-white">Link 1</a>
+                  </li>
+                  <li>
+                    <a href="#!" class="text-white">Link 2</a>
+                  </li>
+                  <li>
+                    <a href="#!" class="text-white">Link 3</a>
+                  </li>
+                  <li>
+                    <a href="#!" class="text-white">Link 4</a>
+                  </li>
+                </ul>
+              </div>
+              <!--Grid column-->
+      
+              <!--Grid column-->
+              <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Links</h5>
+      
+                <ul class="list-unstyled mb-0">
+                  <li>
+                    <a href="#!" class="text-white">Link 1</a>
+                  </li>
+                  <li>
+                    <a href="#!" class="text-white">Link 2</a>
+                  </li>
+                  <li>
+                    <a href="#!" class="text-white">Link 3</a>
+                  </li>
+                  <li>
+                    <a href="#!" class="text-white">Link 4</a>
+                  </li>
+                </ul>
+              </div>
+              <!--Grid column-->
+            </div>
+            <!--Grid row-->
+          </section>
+          <!-- Section: Links -->
+        </div>
+        <!-- Grid container -->
+      
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2023 Copyright:
+          <a href="#">WorkMatch.cl</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
